@@ -1,0 +1,5 @@
+/app/etc/config.xml
+/app/etc/local.xml*
+/downloader/.cache
+/media
+/var
