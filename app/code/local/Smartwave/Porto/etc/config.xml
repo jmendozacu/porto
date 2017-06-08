@@ -2,21 +2,30 @@
 <config>
     <modules>
         <Smartwave_Porto>
-            <version>1.6.3</version>
+            <version>2.5.0</version>
         </Smartwave_Porto>
     </modules>                   
     <admin>
         <routers>
-            <adminhtml>
+            <porto>
+                <use>admin</use>
                 <args>
-                    <modules>
-                        <porto after="Mage_Adminhtml">Smartwave_Porto_Adminhtml</porto>
-                    </modules>
+                    <module>Smartwave_Porto</module>
+                    <frontName>porto</frontName>
                 </args>
-            </adminhtml>
+            </porto>
         </routers>
     </admin>
     <frontend>
+        <routers>
+            <porto>
+                <use>standard</use>
+                <args>
+                    <frontName>swporto</frontName>
+                    <module>Smartwave_Porto</module>
+                </args>
+            </porto>
+        </routers>
         <translate>
             <modules>
                 <Smartwave_Porto>
@@ -36,6 +45,15 @@
 			</configurable>
 		</product>
     </frontend>
+	<adminhtml>
+        <layout>
+            <updates>
+                <porto module="Smartwave_Porto">
+                    <file>smartwave_porto.xml</file>
+                </porto>
+            </updates>
+        </layout>
+    </adminhtml>
     <global>
         <blocks>
             <porto>
@@ -212,6 +230,7 @@
                 <next_text><![CDATA[<i class="icon-right-open"></i>]]></next_text>
                 <product_image_size>5</product_image_size>
                 <page_layout>two_column_right</page_layout>
+				<upsell_columns>4</upsell_columns>
             </product_view>
             <product_view_custom_tab>
                 <custom_tab>1</custom_tab>
